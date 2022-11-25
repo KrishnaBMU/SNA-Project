@@ -2,3 +2,5 @@ from .diffusionsampler import DiffusionSampler
 from .randomwalksampler import RandomWalkSampler
 from .randomwalkwithjumpsampler import RandomWalkWithJumpSampler
 from .randomwalkwithrestartsampler import RandomWalkWithRestartSampler
+from .shortest_path import ShortestPathSampler
+from .shortest_path_modified import ShortestPathModifiedSampler
