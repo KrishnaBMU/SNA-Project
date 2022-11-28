@@ -80,7 +80,7 @@ def PlotShortestPathModifiedSampler(graph):
 
 # reader = GraphReader("wikipedia")
 # graph = reader.get_graph()
-graph = nx.newman_watts_strogatz_graph(1000, 20, 0.05)
+graph = nx.newman_watts_strogatz_graph(1000, 20, 0.05, seed=32)
 
 # new_graph = PlotDiffusionSampler(graph)
 # new_graph = PlotRandomEdgeSampler(graph)

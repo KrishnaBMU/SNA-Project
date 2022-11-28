@@ -32,11 +32,12 @@ class ShortestPathModifiedSampler(Sampler):
 
     def _sample_a_pair(self, graph):
         source = self._sample_a_node_highest(graph)
-        target = self._sample_a_node_lowest(graph)
+        target = self._sample_a_node_highest(graph)
         return source, target
 
     def sample(self, graph: Union[NXGraph, NKGraph]) -> Union[NXGraph, NKGraph]:
-        self.degrees = [node for (node, _) in sorted(graph.degree(), key=lambda x: x[1], reverse=True)]
+        c = nx.clustering(graph) # clustering
+        self.degrees = [node for (node, _) in sorted(graph.degree(), key=lambda x: c[x[0]], reverse=True)]
         self.highest_index = -1
         self.lowest_index = len(self.degrees)
         
